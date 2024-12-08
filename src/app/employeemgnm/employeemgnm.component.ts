@@ -29,17 +29,20 @@ export class EmployeemgnmComponent {
 
   saveEmployee(): void {
     if (this.isEdit) {
+   
       this.apiService.updateItem('employees', this.employee.id, this.employee).subscribe(() => {
         this.loadEmployees();
         this.resetForm();
       });
     } else {
+   
       this.apiService.addItem('employees', this.employee).subscribe(() => {
         this.loadEmployees();
         this.resetForm();
       });
     }
   }
+  
 
   editEmployee(employee: any): void {
     this.employee = { ...employee };
